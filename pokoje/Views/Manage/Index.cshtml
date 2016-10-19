@@ -7,10 +7,10 @@
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
-    <h4>Change your account settings</h4>
+    <h4>Zmień ustawienia strony.</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>Password:</dt>
+        <dt>Hasło:</dt>
         <dd>
             [
             @if (Model.HasPassword)
@@ -23,7 +23,7 @@
             }
             ]
         </dd>
-        <dt>External Logins:</dt>
+        <dt>Zewnętrzne logowania:</dt>
         <dd>
             @Model.Logins.Count [
             @Html.ActionLink("Manage", "ManageLogins") ]
@@ -53,7 +53,7 @@
                 ]
             </dd>
         *@
-        <dt>Two-Factor Authentication:</dt>
+        <dt>Dwuetapowa weryfikacja:</dt>
         <dd>
             <p>
                 There are no two-factor authentication providers configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
