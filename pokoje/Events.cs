@@ -20,5 +20,12 @@ namespace pokoje
         public int? room_id { get; set; }
 
         public int user_id { get; set; }
+
+        [StringLength(250)]
+        public string color { get; set; }
+
+        [StringLength(250)]
+        public string textColor { get; set; }
+
     }
 }

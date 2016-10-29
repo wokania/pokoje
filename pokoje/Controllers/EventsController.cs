@@ -12,7 +12,6 @@ namespace pokoje.Controllers
             public ActionResult List()
             {
                 var events = new List<Events>();
-                //here  MyDatabaseEntities is the dbcontext
                 using (Event dc = new Event())
                 {
                     events = dc.Events.ToList();
