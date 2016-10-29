@@ -12,11 +12,12 @@ namespace pokoje
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            /*
             routes.MapRoute(
                 name: "Calendar",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Calendar", action="Index", id = UrlParameter.Optional }
-            );
+            );*/
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

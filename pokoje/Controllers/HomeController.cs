@@ -26,6 +26,18 @@ namespace pokoje.Controllers
 
             return View();
         }
+        public ActionResult Calendar()
+        {
+            ViewBag.Message = "Kalendarz Eventów";
+
+            return View();
+        }
+        public ActionResult List()
+        {
+            ViewBag.Message = "Lista Rezerwacji";
+
+            return View();
+        }
 
 
     }
