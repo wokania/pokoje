@@ -26,6 +26,8 @@ namespace pokoje.Controllers
 
             return View(scheduler);
         }
+
+        
         public ContentResult Data()
         {
             var data = new SchedulerAjaxData(
@@ -36,21 +38,19 @@ namespace pokoje.Controllers
 
         }
 
-        public ContentResult Save(int? id, FormCollection actionValues)
+        public ContentResult Save(int ?id, FormCollection actionValues)
         {
             var action = new DataAction(actionValues);
-            
+           
             try
             {
                 var changedEvent = (Events)DHXEventsHelper.Bind(typeof(Events), actionValues);
-
-     
 
                 switch (action.Type)
                 {
                     case DataActionTypes.Insert:
                         //do insert
-                        //action.TargetId = changedEvent.id;//assign postoperational id
+                        action.TargetId = changedEvent.id;
                         break;
                     case DataActionTypes.Delete:
                         //do delete
