@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 
 using DHTMLX.Scheduler;
 using DHTMLX.Common;
@@ -13,7 +15,7 @@ using DHTMLX.Scheduler.Controls;
 using pokoje.Models;
 namespace pokoje.Controllers
 {
-    [Authorize(Roles ="role")]
+    [Authorize]
     public class CalendarController : Controller
     {
         public ActionResult Index()
@@ -26,13 +28,13 @@ namespace pokoje.Controllers
             scheduler.EnableDataprocessor = true;
 
             return View(scheduler);
+            
         }
 
         
         public ContentResult Data()
         {
             var data = new SchedulerAjaxData(
-                
             new Event().Events.Select(e => new { id = e.id, start_date = e.start_date, end_date = e.end_date, text = e.text, room_id = e.room_id, color = e.color, textColor = e.textColor})
         );
             return (ContentResult)data;
@@ -46,20 +48,26 @@ namespace pokoje.Controllers
             try
             {
                 var changedEvent = (Events)DHXEventsHelper.Bind(typeof(Events), actionValues);
+                var data = new Event();
 
                 switch (action.Type)
                 {
                     case DataActionTypes.Insert:
-                        //do insert
-                        action.TargetId = changedEvent.id;
+                        data.Events.Add(changedEvent);
+                        
                         break;
                     case DataActionTypes.Delete:
-                        //do delete
-                        break;
-                    default:// "update"                          
-                        //do update
+                        data.Events.SingleOrDefault(ev => ev.id == action.SourceId);
+                        data.Events.Remove(changedEvent);
+                        break; 
+                    default:
+                        var eventToUpdate = data.Events.SingleOrDefault(ev => ev.id == action.SourceId);
+
+                        DHXEventsHelper.Update(eventToUpdate, changedEvent, new List<string>() { "id" });
                         break;
                 }
+                data.SaveChanges();
+                action.TargetId = changedEvent.id;
             }
             catch
             {

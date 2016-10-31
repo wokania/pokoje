@@ -7,8 +7,6 @@ namespace pokoje.Controllers
 {
     public class EventsController : Controller
     {
-            //
-            // GET: /User/
             public ActionResult List()
             {
                 var events = new List<Events>();
@@ -18,6 +16,5 @@ namespace pokoje.Controllers
                 }
                 return View(events);
             }
-
         }
     }
