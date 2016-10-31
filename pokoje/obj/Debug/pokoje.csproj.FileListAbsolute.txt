@@ -274,3 +274,4 @@ C:\Users\Dominik\Source\pokoje\pokoje\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Dominik\Source\pokoje\pokoje\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Dominik\Source\pokoje\pokoje\obj\Debug\pokoje.dll
 C:\Users\Dominik\Source\pokoje\pokoje\obj\Debug\pokoje.pdb
+C:\Users\wokan\Desktop\GIT\pokoje\pokoje\bin\DayPilot.dll

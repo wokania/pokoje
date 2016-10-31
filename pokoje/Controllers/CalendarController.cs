@@ -13,6 +13,7 @@ using DHTMLX.Scheduler.Controls;
 using pokoje.Models;
 namespace pokoje.Controllers
 {
+    [Authorize(Roles ="role")]
     public class CalendarController : Controller
     {
         public ActionResult Index()
