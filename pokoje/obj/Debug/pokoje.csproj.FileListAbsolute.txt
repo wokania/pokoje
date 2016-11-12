@@ -275,3 +275,4 @@ C:\Users\Dominik\Source\pokoje\pokoje\bin\Microsoft.Owin.Security.MicrosoftAccou
 C:\Users\Dominik\Source\pokoje\pokoje\obj\Debug\pokoje.dll
 C:\Users\Dominik\Source\pokoje\pokoje\obj\Debug\pokoje.pdb
 C:\Users\Dominik\Source\pokoje\pokoje\obj\Debug\pokoje.csprojResolveAssemblyReference.cache
+C:\Users\wokan\Desktop\GIT\pokoje\pokoje\bin\DayPilot.dll
